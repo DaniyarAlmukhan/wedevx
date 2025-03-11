@@ -13,10 +13,14 @@
     "@jsonforms/material-renderers": "^3.5.1",
     "@jsonforms/react": "^3.5.1",
     "@reduxjs/toolkit": "^2.6.1",
+    "@types/styled-components": "^5.1.34",
+    "lucide-react": "^0.479.0",
     "next": "15.2.2",
+    "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
