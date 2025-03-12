@@ -1,12 +1,7 @@
 import { IAuthState, IUser } from "@/interfaces/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const storedUser =
-  typeof window !== "undefined"
-    ? localStorage.getItem("user")
-      ? JSON.parse(localStorage.getItem("user") as string)
-      : null
-    : null;
+const storedUser = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("user") || "null") : null;
 
 const initialState: IAuthState = {
   isAuthenticated: !!storedUser,

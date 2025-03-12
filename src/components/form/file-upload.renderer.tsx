@@ -19,6 +19,9 @@ const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
         handleChange(path, reader.result);
       };
       reader.readAsDataURL(file);
+    } else {
+      setFileName(null);
+      handleChange(path, null);
     }
   };
 
@@ -31,7 +34,7 @@ const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
         <input type="file" accept="application/pdf" onChange={handleFileChange} />
       </UploadButton>
 
-      {data && 
+      {data &&
         <FilePreview>
           <FileText size={16} />
           <span>

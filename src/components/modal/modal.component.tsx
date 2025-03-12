@@ -7,7 +7,7 @@ interface IModalProps {
 
 export default function Modal({ children, onClose }: IModalProps) {
   return <ModalContainer>
-    <ModalOverlay onClick={onClose} />
+    <ModalOverlay onClick={onClose} data-testId="modal-overlay" />
     <ModalContent>
       {children}
     </ModalContent>

@@ -82,9 +82,10 @@ export default function Table({ onButtonClick }: ITableProps) {
   return (
     <TableWrapper>
       <TableFilters>
-        <input type="text" placeholder="Search" value={query} onChange={e => setQuery(e.target.value)} />
+        <input type="text" placeholder="Search" value={query} onChange={e => setQuery(e.target.value)} data-testId="search-input" />
 
-        <select name="status" id="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+        <select name="status" id="status" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} data-testId="status-filter"
+        >
           <option value="">{t('leads.status')}</option>
           {statuses.map((status: string) => (
             <option key={status} value={status} >{t('leads.' + status)}</option>

@@ -8,8 +8,6 @@ import { login } from "@/store/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
-
-
 export default function Login() {
   const dispatch = useDispatch();
   const router = useRouter();
