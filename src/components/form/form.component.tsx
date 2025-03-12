@@ -2,21 +2,21 @@ import { JsonForms } from "@jsonforms/react";
 import { FormContainer } from "@/components/form/form.styles";
 import Button from "@/components/button/button.component";
 import { useTranslations } from "next-intl";
-import { JsonSchema, UISchemaElement,  JsonFormsRendererRegistryEntry } from "@jsonforms/core";
+import { JsonSchema, UISchemaElement, JsonFormsRendererRegistryEntry } from "@jsonforms/core";
 import { materialCells, materialRenderers } from "@jsonforms/material-renderers";
-import { ValidationError } from "@/interfaces/types";
+import { IValidationError } from "@/interfaces/types";
 
-interface FormProps {
-  data: Record<string, string | string[]>;
-  errors: ValidationError[];
+interface FormProps<T> {
+  data: T;
+  errors: IValidationError[];
   schema: JsonSchema;
   uiSchema: UISchemaElement;
-  onChange: (data: Record<string, unknown>, errors: ValidationError[]) => void;
+  onChange: (data: T, errors: IValidationError[]) => void;
   onSubmit: () => void;
   renderers?: JsonFormsRendererRegistryEntry[];
 }
 
-export default function Form({
+export default function Form<T>({
   data,
   errors,
   schema,
@@ -24,7 +24,7 @@ export default function Form({
   renderers = materialRenderers,
   onChange,
   onSubmit,
-}: FormProps) {
+}: FormProps<T>) {
   const t = useTranslations();
 
   return (

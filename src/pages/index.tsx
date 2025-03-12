@@ -8,17 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from 'next/router';
 import { renderers, schema, uiSchema } from "@/constants/form.constants";
-import { ValidationError } from "@/interfaces/types";
+import { IFormData, ILead, IValidationError } from "@/interfaces/types";
 import axios from "axios";
 import { logout } from "@/store/slices/authSlice";
+import { addLead } from "@/store/slices/leadsSlice";
 
 export default function Home() {
     const t = useTranslations();
     const router = useRouter();
     const dispatch = useDispatch();
     const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-    const [data, setData] = useState({});
-    const [errors, setErrors] = useState<ValidationError[]>([]);
+    const [data, setData] = useState<IFormData>();
+    const [errors, setErrors] = useState<IValidationError[]>([]);
     const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
     const user = useSelector((state: RootState) => state.auth.user);
 
@@ -37,6 +38,16 @@ export default function Home() {
         axios.post("/api/mockSubmit", data).then((response) => {
             if (response.data.success) {
                 setIsFormSubmitted(true);
+                const formattedLeadData: ILead = {
+                    ...data,
+                    status: 'PENDING',
+                    submitted: new Date().toISOString(),
+                    id: Math.floor(Math.random() * 1000) + +new Date(),
+                    name: data?.name as string,
+                    surname: data?.surname as string,
+                    email: data?.email as string,
+                }
+                dispatch(addLead(formattedLeadData));
             }
         }).catch(() => {
             setIsFormSubmitted(false);
@@ -52,15 +63,18 @@ export default function Home() {
                 <div className="profile">
                     {isAuthenticated
                         ? <>
+                            <Button variant="clean" maxWidth="min-content" onClick={() => router.push('/leads-management')}>
+                                {t("routes.leads")}
+                            </Button>
                             <UserProfile>
                                 {user?.name.split("")[0]}
                             </UserProfile>
                             <Button maxWidth="min-content" onClick={handleLogout}>
-                                Logout
+                                {t("action.logout")}
                             </Button>
                         </>
                         : <Button maxWidth="min-content" onClick={handleLogin}>
-                            Login
+                            {t("action.login")}
                         </Button>
                     }
                 </div>

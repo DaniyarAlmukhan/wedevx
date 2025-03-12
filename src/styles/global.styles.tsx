@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --primary-color: #e0f0bc;
     --font-montserrat: 'Montserrat', sans-serif;
+    --secondary-color: #e0e0e0;
   }
 `;
 

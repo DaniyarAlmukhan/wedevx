@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button<{variant?: "primary" | "secondary", width?: string, maxWidth?: string}>`
+export const StyledButton = styled.button<{ variant?: "primary" | "secondary" | "clean" | 'success' | 'danger', width?: string, maxWidth?: string }>`
   height: 3rem;
   width: 100%;
   border: none;
@@ -23,4 +23,22 @@ export const StyledButton = styled.button<{variant?: "primary" | "secondary", wi
     color: #666;
     cursor: not-allowed;
   }
+
+  ${({ variant }) => variant === 'clean' && `
+    background-color: transparent;
+    color: #000;
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  `}
+
+  ${({ variant }) => variant === 'success' && `
+    background-color: #28a745;
+
+    &:hover {
+      background-color: #218838;
+    }
+  `}
 `

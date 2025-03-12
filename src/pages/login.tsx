@@ -1,6 +1,6 @@
 import Form from "@/components/form/form.component";
 import { loginSchema, loginUiSchema } from "@/constants/form.constants";
-import { ValidationError } from "@/interfaces/types";
+import { ILoginData, IValidationError } from "@/interfaces/types";
 import { LoginFormContainer, LoginPageContainer } from "@/styles/login-page.styles";
 import { useState } from "react";
 import axios from "axios";
@@ -8,16 +8,13 @@ import { login } from "@/store/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
-type LoginData = {
-  username?: string;
-  password?: string;
-}
+
 
 export default function Login() {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [data, setData] = useState<LoginData>({});
-  const [errors, setErrors] = useState<ValidationError[]>([]);
+  const [data, setData] = useState<ILoginData>();
+  const [errors, setErrors] = useState<IValidationError[]>([]);
 
   const handleSubmitForm = () => {
     if (typeof window === "undefined") return;

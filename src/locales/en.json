@@ -15,6 +15,24 @@
     },
     "action": {
         "submit": "Submit",
-        "uploadPdf": "Upload PDF"
+        "uploadPdf": "Upload PDF",
+        "login": "Login",
+        "logout": "Logout",
+        "view": "View",
+        "save": "Save",
+        "cancel": "Cancel"
+    },
+    "routes": {
+        "leads": "Leads",
+        "settings": "Settings"
+    },
+    "leads": {
+        "title": "Leads",
+        "name": "Name",
+        "submitted": "Submitted",
+        "status": "Status",
+        "email": "Email",
+        "PENDING": "Pending",
+        "REACHED_OUT": "Reached Out"
     }
 }
