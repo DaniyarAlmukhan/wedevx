@@ -4,7 +4,6 @@ export const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 75rem;
     padding: 1rem;
 
       .MuiInputBase-root {

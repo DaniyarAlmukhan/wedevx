@@ -3,10 +3,12 @@ import { withJsonFormsControlProps } from "@jsonforms/react";
 import { ControlProps } from "@jsonforms/core";
 import { FileText, Upload } from "lucide-react"; // Lucide icons
 import { FilePreview, UploadButton, UploadContainer } from "@/components/form/form.styles";
+import { useTranslations } from "next-intl";
 
 
 
 const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
+  const t = useTranslations();
   const [fileName, setFileName] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,10 +27,10 @@ const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
 
   return (
     <UploadContainer error={!data}>
-      Resume/CV
+      {t('form.CV')}
       <UploadButton>
         <Upload size={18} />
-        Upload PDF
+        {t('action.uploadPdf')}
         <input type="file" accept="application/pdf" onChange={handleFileChange} />
       </UploadButton>
 

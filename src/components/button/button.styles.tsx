@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button<{variant?: "primary" | "secondary"}>`
+export const StyledButton = styled.button<{variant?: "primary" | "secondary", width?: string, maxWidth?: string}>`
   height: 3rem;
   width: 100%;
   border: none;
@@ -10,6 +10,9 @@ export const StyledButton = styled.button<{variant?: "primary" | "secondary"}>`
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  width: ${({ width }) => width || "100%"};
+  max-width: ${({ maxWidth }) => maxWidth || "none"};
+  padding: 0.5rem 1rem;
 
   &:hover {
     background-color: #333;

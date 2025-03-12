@@ -2,14 +2,19 @@
     "home": {
         "title": "Get An Assesment Of Your Immigration Case",
         "form-title": "Want to understand your visa options?",
-        "form-subtitle": "Submit the form below and our team of experienced attorneys will review your information and send a prelimenary assesment of your case based on your goals"
+        "form-subtitle": "Submit the form below and our team of experienced attorneys will review your information and send a prelimenary assesment of your case based on your goals",
+        "back": "Go Back to Homepage",
+        "after-form-title": "Thank you",
+        "after-form-subtitle": "Your information was submitted to our team of immigtaion attorneys. Expect an email from test@test.com"
     },
     "form": {
         "visa": "Visa categories of interest?",
         "additional": "How can we help you?",
-        "default": "How can we help you?"
+        "default": "How can we help you?",
+        "CV": "Resume/CV"
     },
     "action": {
-        "submit": "Submit"
+        "submit": "Submit",
+        "uploadPdf": "Upload PDF"
     }
 }

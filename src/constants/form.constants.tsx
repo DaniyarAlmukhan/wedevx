@@ -8,8 +8,8 @@ export const schema = {
   type: "object",
   required: ["name", "surname", "email", "fileUpload"],
   properties: {
-    name: { type: "string", minLength: 2, title: "First Name"},
-    surname: { type: "string", minLength: 2, title: "Last Name"},
+    name: { type: "string", minLength: 2, title: "First Name" },
+    surname: { type: "string", minLength: 2, title: "Last Name" },
     email: { type: "string", format: "email", title: "Email Address" },
     linkedIn: { type: "string", format: "uri", title: "LinkedIn Profile" },
     visas: {
@@ -22,7 +22,7 @@ export const schema = {
       uniqueItems: true,
     },
     fileUpload: { type: "string", contentMediaTyle: "application/pdf", title: "Resume/CV (PDF)" },
-    additionalInfo: { type: "string", title: "Additional Information", format: "textarea"  },
+    additionalInfo: { type: "string", title: "Additional Information", format: "textarea" },
   },
 }
 
@@ -33,15 +33,15 @@ export const uiSchema = {
     { type: "Control", scope: "#/properties/surname" },
     { type: "Control", scope: "#/properties/email" },
     { type: "Control", scope: "#/properties/linkedIn" },
-    { 
-      type: "Label", 
+    {
+      type: "Label",
       text: "Select your visa preferences:",
-      options: { classNames: "custom-label", labelType: "visa" } 
+      options: { classNames: "custom-label", labelType: "visa" }
     },
     { type: "Control", scope: "#/properties/visas", options: { multi: true, layout: "columns", classNames: "custom-checkbox-container" } },
     { type: "Control", scope: "#/properties/fileUpload", options: { accept: ".pdf", fileUpload: true } },
-    { 
-      type: "Label", 
+    {
+      type: "Label",
       text: "How can we help you?",
       options: { classNames: "custom-label", labelType: "additional" }
     },
@@ -55,3 +55,20 @@ export const renderers = [
   { tester: rankWith(3, uiTypeIs("Label")), renderer: CustomLabelRenderer },
   { tester: rankWith(5, formatIs("textarea")), renderer: TextAreaRenderer },
 ]
+
+export const loginSchema = {
+  type: "object",
+  required: ["username", "password"],
+  properties: {
+    username: { type: "string", title: "Username", pattern: "^[^\\s]+$", },
+    password: { type: "string", title: "Password", pattern: "^[^\\s]+$", },
+  },
+}
+
+export const loginUiSchema = {
+  type: "VerticalLayout",
+  elements: [
+    { type: "Control", scope: "#/properties/username" },
+    { type: "Control", scope: "#/properties/password" },
+  ]
+}

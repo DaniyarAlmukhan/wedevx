@@ -1,9 +1,56 @@
-export default function Home() {
-    return (
-      <main>
-        <h1>Welcome to Next.js App Router 123123123123</h1>
-        <p>This is the default homepage using the `app/` directory.</p>
-      </main>
-    );
+import Form from "@/components/form/form.component";
+import { loginSchema, loginUiSchema } from "@/constants/form.constants";
+import { ValidationError } from "@/interfaces/types";
+import { LoginFormContainer, LoginPageContainer } from "@/styles/login-page.styles";
+import { useState } from "react";
+import axios from "axios";
+import { login } from "@/store/slices/authSlice";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+
+type LoginData = {
+  username?: string;
+  password?: string;
+}
+
+export default function Login() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [data, setData] = useState<LoginData>({});
+  const [errors, setErrors] = useState<ValidationError[]>([]);
+
+  const handleSubmitForm = () => {
+    if (typeof window === "undefined") return;
+    if (errors.length > 0) return;
+
+    if (data) {
+      axios.post("/api/mockAuth", data).then((response) => {
+        if (response.data.success) {
+          dispatch(login({ name: data.username || "username" }));
+          router.push("/");
+        }
+      }).catch(() => {
+        console.error("Error submitting form");
+      })
+    }
   }
-  
+
+  return (
+    <LoginPageContainer>
+      <LoginFormContainer>
+        <Form
+          data={data}
+          errors={errors}
+          schema={loginSchema}
+          uiSchema={loginUiSchema}
+          onSubmit={handleSubmitForm}
+          onChange={(newData, errors) => {
+            setData(newData);
+            setErrors(errors);
+          }}
+        />
+      </LoginFormContainer>
+
+    </LoginPageContainer>
+  );
+}
