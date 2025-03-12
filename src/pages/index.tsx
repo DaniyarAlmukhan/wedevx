@@ -1,7 +1,7 @@
 import { HomePageContainer, HomePageFormContainer, HomePageHeader } from "@/styles/home-page.styles";
 import { useTranslations } from "next-intl";
 import { File } from 'lucide-react'
-import Form from "@/components/form.component";
+import Form from "@/components/form/form.component";
 
 export default function Home() {
     const t = useTranslations();

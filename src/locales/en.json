@@ -3,5 +3,13 @@
         "title": "Get An Assesment Of Your Immigration Case",
         "form-title": "Want to understand your visa options?",
         "form-subtitle": "Submit the form below and our team of experienced attorneys will review your information and send a prelimenary assesment of your case based on your goals"
+    },
+    "form": {
+        "visa": "Visa categories of interest?",
+        "additional": "How can we help you?",
+        "default": "How can we help you?"
+    },
+    "action": {
+        "submit": "Submit"
     }
 }

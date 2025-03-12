@@ -22,7 +22,6 @@ export const HomePageHeader = styled.div`
         font-weight: 800;
         line-height: 1;
     }
-
 `
 
 export const HomePageFormContainer = styled.div`
