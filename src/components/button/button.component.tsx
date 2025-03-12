@@ -12,7 +12,7 @@ interface ButtonProps {
 
 export default function Button({ children, onClick, disabled, variant, ...props }: ButtonProps) {
   return (
-    <StyledButton onClick={onClick} disabled={disabled} variant={variant} {...props}>
+    <StyledButton type="button" onClick={onClick} disabled={disabled} variant={variant} {...props}>
       {children}
     </StyledButton>
   );

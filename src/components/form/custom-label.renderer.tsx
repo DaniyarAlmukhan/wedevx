@@ -14,7 +14,7 @@ const textMap = {
   visa: "visa",
   additional: "additional",
   default: "default",
-}
+};
 
 type LabelType = keyof typeof iconMap;
 
@@ -30,7 +30,7 @@ const CustomLabelRenderer = ({ visible, uischema }: LabelProps) => {
   return (
     <LabelContainer>
       <div className="heading">
-        <IconComponent size={60} />
+        <IconComponent size={60} data-testid={`${labelType}-icon`} />
         <div className="title">{t('form.' + customText)}</div>
       </div>
     </LabelContainer>

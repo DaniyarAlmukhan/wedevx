@@ -70,7 +70,7 @@ export default function LeadManagement() {
 
         <div className="bottom">
           <UserProfile>
-            {user?.name.split("")[0]}
+            {user?.name?.split("")[0]}
           </UserProfile>
           <span>
             {user?.name}

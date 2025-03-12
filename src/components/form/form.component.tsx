@@ -1,5 +1,5 @@
 import { JsonForms } from "@jsonforms/react";
-import { FormContainer } from "@/components/form/form.styles";
+import { FormContainer } from "./form.styles";
 import Button from "@/components/button/button.component";
 import { useTranslations } from "next-intl";
 import { JsonSchema, UISchemaElement, JsonFormsRendererRegistryEntry } from "@jsonforms/core";

@@ -5,8 +5,6 @@ import { FileText, Upload } from "lucide-react"; // Lucide icons
 import { FilePreview, UploadButton, UploadContainer } from "@/components/form/form.styles";
 import { useTranslations } from "next-intl";
 
-
-
 const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
   const t = useTranslations();
   const [fileName, setFileName] = useState<string | null>(null);
@@ -21,7 +19,6 @@ const FileUploadRenderer = ({ data, handleChange, path }: ControlProps) => {
         handleChange(path, reader.result);
       };
       reader.readAsDataURL(file);
-      console.log(file);
     }
   };
 
